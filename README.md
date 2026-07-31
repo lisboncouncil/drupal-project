@@ -12,9 +12,19 @@ composer create-project lisboncouncil/drupal-project mysite/drupal \
   --repository='{"type":"vcs","url":"https://github.com/lisboncouncil/drupal-project"}'
 ```
 
-Then follow the post-install message: create the database, run
-`drush site:install`, enable `lc_hcommon` and `lc_pages`, then the
-`lc_section_*` modules the site needs.
+Then follow the post-install message: create the database, then run:
+
+```bash
+drush site:install standard
+drush recipe web/core/recipes/article_content_type   # run from the project root with an absolute path if drush complains
+drush recipe web/core/recipes/page_content_type
+drush en lc_hcommon lc_pages
+```
+
+On Drupal ≥11.4 the non-interactive `standard` profile no longer creates the
+`article` and `page` content types, which `lc_hcommon` requires; applying
+both core recipes before enabling the Horizon base modules is required.
+Then enable the `lc_section_*` modules the site needs.
 
 ## What's included
 
