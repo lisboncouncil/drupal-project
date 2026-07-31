@@ -9,7 +9,7 @@
 /recipes/
 
 # Composer-managed custom modules (lc/ has its own repo)
-/web/modules/custom/
+/web/modules/custom/lc/
 
 # Drupal scaffold files
 /web/.csslintrc

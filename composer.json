@@ -150,6 +150,7 @@
                 "  * Apply the core recipes: ./vendor/bin/drush recipe $PWD/web/core/recipes/article_content_type && ./vendor/bin/drush recipe $PWD/web/core/recipes/page_content_type",
                 "  * Enable the Horizon base modules: ./vendor/bin/drush en lc_hcommon lc_pages",
                 "  * Enable the sections you need: ./vendor/bin/drush en lc_section_partners lc_section_wp lc_events ...",
+                "  * Before enabling lc_glossary, delete core's glossary view: ./vendor/bin/drush config:delete views.view.glossary",
                 "  * Configure the Apache vhost and settings.php (Redis, SMTP, trusted hosts)"
             ]
         }
