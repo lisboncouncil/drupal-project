@@ -144,11 +144,12 @@
                 "<bg=blue;fg=white>                                                        </>",
                 "",
                 "<bg=yellow;fg=black>Next steps</>:",
+                "  * cd into the project directory",
                 "  * Create the MySQL database and user",
-                "  * Install the site: drush site:install",
-                "  * Apply the core recipes: drush recipe $PWD/web/core/recipes/article_content_type && drush recipe $PWD/web/core/recipes/page_content_type",
-                "  * Enable the Horizon base modules: drush en lc_hcommon lc_pages",
-                "  * Enable the sections you need: drush en lc_section_partners lc_section_wp lc_events ...",
+                "  * Install the site: ./vendor/bin/drush site:install standard",
+                "  * Apply the core recipes: ./vendor/bin/drush recipe $PWD/web/core/recipes/article_content_type && ./vendor/bin/drush recipe $PWD/web/core/recipes/page_content_type",
+                "  * Enable the Horizon base modules: ./vendor/bin/drush en lc_hcommon lc_pages",
+                "  * Enable the sections you need: ./vendor/bin/drush en lc_section_partners lc_section_wp lc_events ...",
                 "  * Configure the Apache vhost and settings.php (Redis, SMTP, trusted hosts)"
             ]
         }

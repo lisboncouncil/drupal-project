@@ -15,14 +15,15 @@ composer create-project lisboncouncil/drupal-project mysite/drupal \
 Then follow the post-install message: create the database, then run:
 
 ```bash
-drush site:install standard
-drush recipe $PWD/web/core/recipes/article_content_type
-drush recipe $PWD/web/core/recipes/page_content_type
-drush en lc_hcommon lc_pages
+cd mysite/drupal
+./vendor/bin/drush site:install standard
+./vendor/bin/drush recipe $PWD/web/core/recipes/article_content_type
+./vendor/bin/drush recipe $PWD/web/core/recipes/page_content_type
+./vendor/bin/drush en lc_hcommon lc_pages
 ```
 
 `drush recipe` requires an absolute path; run these from the project root so
-`$PWD` resolves correctly. On Drupal ≥11.4 the non-interactive `standard`
+`$PWD` resolves correctly. On current Drupal 11 the non-interactive `standard`
 profile no longer creates the `article` and `page` content types, which
 `lc_hcommon` requires; applying both core recipes before enabling the
 Horizon base modules is required. Then enable the `lc_section_*` modules
