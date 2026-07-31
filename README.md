@@ -26,8 +26,12 @@ cd mysite/drupal
 `$PWD` resolves correctly. On current Drupal 11 the non-interactive `standard`
 profile no longer creates the `article` and `page` content types, which
 `lc_hcommon` requires; applying both core recipes before enabling the
-Horizon base modules is required. Then enable the `lc_section_*` modules
-the site needs.
+Horizon base modules is required. Enable `lc_hcommon` and `lc_pages` first,
+as shown above: they pull in `responsive_image`, whose optional image styles
+the `lc_section_*` and `lc_events` modules depend on. Then enable the
+`lc_section_*` modules the site needs. Before enabling `lc_glossary`, delete
+core's default glossary view (same machine name):
+`./vendor/bin/drush config:delete views.view.glossary`.
 
 ## What's included
 
