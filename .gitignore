@@ -1,0 +1,5 @@
+/vendor/
+/web/
+/drush/Commands/contrib/
+/recipes/
+composer.lock

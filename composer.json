@@ -1,0 +1,155 @@
+{
+    "name": "lisboncouncil/drupal-project",
+    "description": "Lisbon Council project template for Drupal 11 websites (Horizon projects)",
+    "type": "project",
+    "license": "GPL-2.0-or-later",
+    "homepage": "https://github.com/lisboncouncil/drupal-project",
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/lisboncouncil/drupal-horizon-project.git"
+        }
+    ],
+    "require": {
+        "composer/installers": "^2.3",
+        "cweagans/composer-patches": "^1.7",
+        "drupal/address": "^2.0",
+        "drupal/advanced_text_formatter": "^3.0@RC",
+        "drupal/bootstrap_barrio": "^5.5",
+        "drupal/bootstrap_sass": "^5.0",
+        "drupal/calendar_view": "^2.1",
+        "drupal/core-composer-scaffold": "^11.3",
+        "drupal/core-project-message": "^11.3",
+        "drupal/core-recipe-unpack": "^11.3",
+        "drupal/core-recommended": "^11.3",
+        "drupal/ds": "^3.37",
+        "drupal/easy_breadcrumb": "^2.0",
+        "drupal/editor_file": "^2.1",
+        "drupal/empty_fields": "^1.0",
+        "drupal/eu_cookie_compliance": "^1.29",
+        "drupal/field_formatter_class": "^1.9",
+        "drupal/field_group": "^4.0",
+        "drupal/format_bytes": "^2.0",
+        "drupal/geocoder_address": "^4.31",
+        "drupal/geocoder_field": "^4.31",
+        "drupal/geofield": "^10.3",
+        "drupal/geolocation_google_maps": "^3.14",
+        "drupal/gin": "^5.0",
+        "drupal/leaflet": "^10.4",
+        "drupal/mailchimp": "^3.1",
+        "drupal/masquerade": "^2.2",
+        "drupal/matomo": "^1.26",
+        "drupal/metatag": "^2.2",
+        "drupal/migrate_plus": "^6.0",
+        "drupal/migrate_source_csv": "^3.8",
+        "drupal/migrate_tools": "^6.1",
+        "drupal/paragraphs": "^1.20",
+        "drupal/pathauto": "^1.14",
+        "drupal/publication_date": "^3.0@RC",
+        "drupal/redirect": "^1.13",
+        "drupal/redis": "^1.11",
+        "drupal/scheduler": "^2.2",
+        "drupal/schema_metatag": "^3.0",
+        "drupal/security_review": "^3.1",
+        "drupal/smart_date": "^4.2",
+        "drupal/smtp": "^1.4",
+        "drupal/svg_image": "^3.2",
+        "drupal/taxonomy_manager": "^2.0",
+        "drupal/token": "^1.17",
+        "drupal/views_bootstrap": "^5.4",
+        "drupal/views_data_export": "^1.8",
+        "drupal/xmlsitemap": "^2.0",
+        "drush/drush": "^13.7",
+        "geocoder-php/google-maps-provider": "^4.8",
+        "lisboncouncil/drupal-horizon-project": "^1.0"
+    },
+    "require-dev": {
+        "drupal/devel": "^5.5",
+        "drupal/upgrade_status": "^4.3"
+    },
+    "conflict": {
+        "drupal/drupal": "*"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true,
+            "cweagans/composer-patches": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "drupal/core-composer-scaffold": true,
+            "drupal/core-project-message": true,
+            "drupal/core-recipe-unpack": true,
+            "php-http/discovery": true,
+            "php-tuf/composer-integration": true,
+            "phpstan/extension-installer": true,
+            "symfony/runtime": true
+        },
+        "sort-packages": true
+    },
+    "extra": {
+        "patches": {},
+        "composer-exit-on-patch-failure": true,
+        "drupal-scaffold": {
+            "locations": {
+                "web-root": "web/"
+            }
+        },
+        "installer-paths": {
+            "web/core": [
+                "type:drupal-core"
+            ],
+            "web/libraries/{$name}": [
+                "type:drupal-library"
+            ],
+            "web/modules/custom/lc": [
+                "lisboncouncil/drupal-horizon-project"
+            ],
+            "web/modules/contrib/{$name}": [
+                "type:drupal-module"
+            ],
+            "web/profiles/contrib/{$name}": [
+                "type:drupal-profile"
+            ],
+            "web/themes/contrib/{$name}": [
+                "type:drupal-theme"
+            ],
+            "drush/Commands/contrib/{$name}": [
+                "type:drupal-drush"
+            ],
+            "web/modules/custom/{$name}": [
+                "type:drupal-custom-module"
+            ],
+            "web/profiles/custom/{$name}": [
+                "type:drupal-custom-profile"
+            ],
+            "web/themes/custom/{$name}": [
+                "type:drupal-custom-theme"
+            ],
+            "recipes/{$name}": [
+                "type:drupal-recipe"
+            ]
+        },
+        "drupal-core-project-message": {
+            "include-keys": [
+                "homepage"
+            ],
+            "post-create-project-cmd-message": [
+                "<bg=blue;fg=white>                                                        </>",
+                "<bg=blue;fg=white>  Lisbon Council Drupal project created.                </>",
+                "<bg=blue;fg=white>                                                        </>",
+                "",
+                "<bg=yellow;fg=black>Next steps</>:",
+                "  * Create the MySQL database and user",
+                "  * Install the site: drush site:install",
+                "  * Enable the Horizon base modules: drush en lc_hcommon lc_pages",
+                "  * Enable the sections you need: drush en lc_section_partners lc_section_wp lc_events ...",
+                "  * Configure the Apache vhost and settings.php (Redis, SMTP, trusted hosts)"
+            ]
+        }
+    }
+}
